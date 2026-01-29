@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Detector</title>
+</head>
+<body>
+    <h1>Emotion Detector</h1>
+    <form method="post">
+        <label for="statement">Enter statement:</label>
+        <input type="text" id="statement" name="statement">
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if error_message %}
+    <p style="color: red;"><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    {% if result %}
+    <h2>Results:</h2>
+    <p>For the given statement, the system response is 
+        'anger': {{ result['anger'] }}, 
+        'disgust': {{ result['disgust'] }}, 
+        'fear': {{ result['fear'] }}, 
+        'joy': {{ result['joy'] }}, 
+        'sadness': {{ result['sadness'] }}. 
+        The dominant emotion is {{ result['dominant_emotion'] }}.
+    </p>
+    {% endif %}
+</body>
+</html>
